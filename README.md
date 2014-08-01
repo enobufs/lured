@@ -69,4 +69,4 @@ lured.load(function (err) {
 When redis client emits 'connect' event, lured will check if the scripts are still cached, if not it will reload the scripts for you. If you need to track down the underlying behavior, set a listener on 'state' event.
 
 ### Why lured while there are other similar script loaders?
-Script loading and management is pain, but I wanted to use SHA values for my scripts so that I can use MULTI with mixture of the scripts and other commands.
+Script loading and management is pain. So, looked for a good tool. I wanted to use SHA values so that I can use MULTI with mixture of the scripts and other commands, but the tools I came across hide many good stuff including the SHA values, and here comes the `lured`!
