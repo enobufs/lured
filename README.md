@@ -1,5 +1,8 @@
 # lured
+[![NPM](https://nodei.co/npm/lured.png?compact=true)](https://nodei.co/npm/lured/)
 
+[![unstable](https://img.shields.io/badge/stability-unstable-yellowgreen.svg)](http://nodejs.org/api/documentation.html#documentation_stability_index)
+[![Build Status](https://travis-ci.org/enobufs/lured.svg?branch=master)](https://travis-ci.org/enobufs/lured)
 Lua script loader for Redis.
 
 ## Installation

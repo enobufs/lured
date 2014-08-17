@@ -127,14 +127,6 @@ Lured.prototype.load = function load(options, cb) {
     }
 };
 
-Lured.prototype.presetSha = function invalidateAll() {
-    var self = this;
-    Object.keys(this._scripts).forEach(function (k) {
-        var v = self._scripts[k];
-        v.sha = require('crypto').createHash("sha1").update(v.script).digest("hex");
-    });
-};
-
 Lured.prototype._exists = function _exists(sha, cb) {
     this._client.multi([['script', 'exists', sha]])
     .exec(function (err, replies) {

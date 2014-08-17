@@ -104,14 +104,6 @@ describe('lured test', function () {
             done();
         });
     });
-
-    it('#presetSha', function () {
-        lured.scripts.hello.sha = null;
-        lured.scripts.bye.sha = null;
-        lured.presetSha(lured.scripts);
-        assert.strictEqual(scripts.hello.sha, scripts.hello.exp);
-        assert.strictEqual(scripts.bye.sha, scripts.bye.exp);
-    });
 });
 
 describe('lured error tests', function () {
