@@ -143,7 +143,11 @@ Lured.prototype._load = function _load(script, cb) {
         if (err) {
             return void(cb(err));
         }
-        cb(null, replies[0]);
+        var sha = replies[0];
+        if (sha.indexOf('ERR') >= 0) {
+            return void(cb(new Error(sha)));
+        }
+        cb(null, sha);
     });
 };
 

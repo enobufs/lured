@@ -190,7 +190,7 @@ describe('lured error tests', function () {
         );
     });
 
-    it('Should detect invalid script', function (done) {
+    it('Should detect invalid null', function (done) {
         lured = require('..').create(c, {
             hello: {
                 script: "return 'hello'"
@@ -206,6 +206,33 @@ describe('lured error tests', function () {
             assert(spyExists.calledOnce);
             assert(spyLoad.calledOnce);
             done();
+        });
+    });
+
+    it('Should detect invalid script', function (done) {
+        var scripts = {
+            hello: {
+                script: "return 'hello'"
+            },
+            bye: {
+                script: "INVALID LUA"
+            }
+        };
+        lured = require('..').create(c, scripts)
+        spyExists = sandbox.spy(lured, '_exists');
+        spyLoad = sandbox.spy(lured, '_load');
+        lured.load(function (err) {
+            var _e;
+            try {
+                assert(err);
+                assert(spyExists.calledTwice);
+                assert(spyLoad.calledTwice);
+                assert.equal(typeof scripts.hello.sha, 'string');
+                assert.strictEqual(scripts.bye.sha, void(0));
+            } catch (e) {
+                _e = e;
+            }
+            done(_e);
         });
     });
 
