@@ -1,6 +1,6 @@
 {
   "name": "lured",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Lua script loading tool for Redis.",
   "main": "index.js",
   "scripts": {
