@@ -144,7 +144,10 @@ Lured.prototype._load = function _load(script, cb) {
             return void(cb(err));
         }
         var sha = replies[0];
-        if (sha.indexOf('ERR') >= 0) {
+        if (
+            typeof sha === 'object'
+            && Object.keys(sha).indexOf('ReplyError')
+        ) {
             return void(cb(new Error(sha)));
         }
         cb(null, sha);
