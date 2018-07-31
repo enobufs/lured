@@ -48,6 +48,13 @@ describe('lured test', function () {
         sandbox.restore();
     });
 
+    after(function (done) {
+        c.quit(function () {
+            c = null;
+            done();
+        });
+    });
+
     it('Establish sha', function (done) {
         lured.load(function (err) {
             assert.ifError(err);
