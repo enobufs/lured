@@ -144,11 +144,11 @@ Lured.prototype._load = function _load(script, cb) {
             return void(cb(err));
         }
         var sha = replies[0];
-        if (
-            typeof sha === 'object'
-            && Object.keys(sha).indexOf('ReplyError')
-        ) {
-            return void(cb(new Error(sha)));
+        if (sha instanceof Error) {
+            return void(cb(sha));
+        }
+        if (typeof sha != 'string') {
+            return void(cb(new Error('Unexpected reply from server')));
         }
         cb(null, sha);
     });
