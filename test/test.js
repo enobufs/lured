@@ -26,7 +26,7 @@ describe('lured test', function () {
 
         function setup(cb) {
             lured = require('..').create(c, scripts);
-            sandbox = sinon.createSandbox();
+            sandbox = sinon.sandbox.create();
             c.multi([['script', 'flush']]).exec(cb);
         }
 
@@ -46,13 +46,6 @@ describe('lured test', function () {
 
     afterEach(function () {
         sandbox.restore();
-    });
-
-    after(function (done) {
-        c.quit(function () {
-            c = null;
-            done();
-        });
     });
 
     it('Establish sha', function (done) {
@@ -121,7 +114,7 @@ describe('lured error tests', function () {
     var spyLoad;
 
     before(function () {
-        sandbox = sinon.createSandbox();
+        sandbox = sinon.sandbox.create();
     });
 
     beforeEach(function (done) {
