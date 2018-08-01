@@ -6,6 +6,9 @@
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
+  "engines": {
+    "node": ">=6"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/enobufs/lured.git"
@@ -19,11 +22,11 @@
   "author": "enobufs",
   "license": "MIT",
   "dependencies": {
-    "redis": "~0.12.1",
-    "async": "~0.9.0"
+    "async": "^2.6.1",
+    "redis": "^2.8.0"
   },
   "devDependencies": {
-    "mocha": "~1.21.3",
-    "sinon": "~1.10.3"
+    "mocha": "^5.2.0",
+    "sinon": "^6.1.4"
   }
 }
